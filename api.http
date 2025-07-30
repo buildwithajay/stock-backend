@@ -4,4 +4,33 @@ GET {{api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+POST   http://localhost:5299/api/stock
+Content-Type: application/json
+
+{
+    "symbol":"SIKLES",
+    "companyName":"Sikles Hydropower Limited",
+    "purchase":800,
+    "lastDiv":5000,
+    "industry":"Hydropower",
+    "marketCap":189
+}
+
+###
 GET http://localhost:5299/api/stock
+
+###
+PUT  http://localhost:5299/api/stock/3
+Content-Type: application/json
+
+{
+    "symbol":"CHDC",
+    "companyName":"CEDB Hydropower Development Company Limited",
+    "purchase":600,
+    "lastDiv":3000,
+    "industry":"Investment",
+    "marketCap":199
+}
+
+###
+ DELETE http://localhost:5299/api/stock/3
