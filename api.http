@@ -4,4 +4,4 @@ GET {{api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
-GET http://localhost:5299/1
+GET http://localhost:5299/api/stock

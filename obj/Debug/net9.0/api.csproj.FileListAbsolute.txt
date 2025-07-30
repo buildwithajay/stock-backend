@@ -164,3 +164,4 @@
 /Users/ajaypaudel/Desktop/Dotnet1.1/api/bin/Debug/net9.0/System.Web.Http.dll
 /Users/ajaypaudel/Desktop/Dotnet1.1/api/bin/Debug/net9.0/Newtonsoft.Json.dll
 /Users/ajaypaudel/Desktop/Dotnet1.1/api/bin/Debug/net9.0/Newtonsoft.Json.Bson.dll
+/Users/ajaypaudel/Desktop/Dotnet1.1/api/obj/Debug/net9.0/api.sourcelink.json
