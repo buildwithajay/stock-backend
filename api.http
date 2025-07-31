@@ -33,4 +33,4 @@ Content-Type: application/json
 }
 
 ###
- DELETE http://localhost:5299/api/stock/3
+ DELETE http://localhost:5299/api/stock/1002
