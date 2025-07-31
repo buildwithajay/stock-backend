@@ -34,3 +34,5 @@ Content-Type: application/json
 
 ###
  DELETE http://localhost:5299/api/stock/1002
+###
+GET http://localhost:5299/api/comment
