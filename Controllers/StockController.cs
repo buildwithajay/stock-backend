@@ -61,7 +61,7 @@ namespace api.Controllers
             item.LastDiv = stock.LastDiv;
             item.Industry = stock.Industry;
             item.MarketCap = stock.MarketCap;
-                    _context.Update(item);
+             _context.Update(item);
             await _context.SaveChangesAsync();
             return Ok(item.ToStockDto());
         }
