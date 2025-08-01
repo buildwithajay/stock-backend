@@ -46,7 +46,7 @@ namespace api.Repository
 
         public async Task<Stock?> GetByIdAsync(int id)
         {
-            var stockModel = await _context.stocks.FindAsync(id);
+            var stockModel = await _context.stocks.Include(c=>c.comments).FirstOrDefaultAsync(x=>x.Id==id);
             if (stockModel == null)
             {
                 return null;
