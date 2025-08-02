@@ -4,13 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Dtos;
 using api.Dtos.Stock;
+using api.Helper;
 using api.Models;
 
 namespace api.Interfaces
 {
     public interface IStockRepository
     {
-        Task<List<Stock>> GetAllAsync();
+        Task<List<Stock>> GetAllAsync(QueryObject queryObject);
 
         Task<Stock?> GetByIdAsync(int id);
         Task<Stock> CreateAsync(Stock stockModel);

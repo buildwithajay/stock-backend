@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
 using api.Dtos.Stock;
+using api.Helper;
 using api.Interfaces;
 using api.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -45,9 +46,19 @@ namespace api.Repository
             
         }
 
-        public async Task<List<Stock>> GetAllAsync()
+        public async Task<List<Stock>> GetAllAsync(QueryObject queryObject)
         {
-            return await _context.stocks.Include(c=>c.comments).ToListAsync();
+            var data = _context.stocks.Include(c => c.comments).AsQueryable();
+            if (!string.IsNullOrWhiteSpace(queryObject.CompanyName))
+            {
+                data = data.Where(s => s.CompanyName.Contains(queryObject.CompanyName));
+
+            }
+            if (!string.IsNullOrWhiteSpace(queryObject.Symbol))
+            {
+                data = data.Where(s => s.Symbol.Contains(queryObject.Symbol));
+            }
+            return await data.ToListAsync();
         }
 
         public async Task<Stock?> GetByIdAsync(int id)
