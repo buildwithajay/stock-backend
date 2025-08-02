@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
+using api.Dtos.Comment;
 using api.Interfaces;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,27 @@ namespace api.Repository
         {
             _context = context;
         }
+
+        public async Task<Comment> CreateAsync(Comment commentModel)
+        {
+            await _context.comments.AddAsync(commentModel);
+            await _context.SaveChangesAsync();
+            return commentModel;
+        }
+
+        public async Task<Comment?> DeleteAsync(int id)
+        {
+            var comment = await _context.comments.FirstOrDefaultAsync(x=>x.Id==id);
+            if (comment == null)
+            {
+                return null;
+
+            }
+            _context.comments.Remove(comment);
+            await _context.SaveChangesAsync();
+            return comment;
+        }
+
         public async Task<List<Comment>> GetAllAsync()
         {
             return await _context.comments.ToListAsync();
@@ -31,6 +53,21 @@ namespace api.Repository
                 return null;
             }
             return comments;
+        }
+
+       
+
+        public  async Task<Comment?> UpdateAsync(int id, Comment comentModel)
+        {
+             var comment = await _context.comments.FindAsync(id);
+            if (comment == null)
+            {
+                return null;
+            }
+            comment.Title = comentModel.Title;
+            comment.Content = comentModel.Content;
+            await _context.SaveChangesAsync();
+            return comment;
         }
     }
 }

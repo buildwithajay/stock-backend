@@ -35,4 +35,26 @@ Content-Type: application/json
 ###
  DELETE http://localhost:5299/api/stock/1002
 ###
-GET http://localhost:5299/api/comment
+POST  http://localhost:5299/api/comment/2
+Content-Type: application/json
+
+{
+    "title":"Generate 86MW electricity",
+    "content":"Sahas urja proving the best hydropower company in nepal generating profits in crores and playing crucial role in Nepal's Electricity services",
+    "stockId":2
+    
+}
+
+###
+GET  http://localhost:5299/api/comment
+
+###
+PUT http://localhost:5299/api/comment/1
+Content-Type: application/json
+
+{
+    "title":"Mid-Cap hydro",
+    "content":"in the lastest bull market the bull have not entered in this stock"
+}
+###
+DELETE http://localhost:5299/api/comment/2
