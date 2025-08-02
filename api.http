@@ -39,8 +39,8 @@ POST  http://localhost:5299/api/comment/2
 Content-Type: application/json
 
 {
-    "title":"Generate 86MW electricity",
-    "content":"Sahas urja proving the best hydropower company in nepal generating profits in crores and playing crucial role in Nepal's Electricity services",
+    "title":"the 10% rule",
+    "content":"the 10 percent rule mean the stock can go upto 10 percent up or down in the day",
     "stockId":2
     
 }
