@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<AppUser>
     {
         public ApplicationDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
         {
