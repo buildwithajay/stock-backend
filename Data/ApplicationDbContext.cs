@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using api.Migrations;
+// using api.Migrations;
 using api.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -18,20 +18,35 @@ namespace api.Data
         }
         public DbSet<Stock> stocks { get; set; }
         public DbSet<Comment> comments { get; set; }
+        public DbSet<Portfolio> portfolios { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.Entity<Portfolio>(x => x.HasKey(p => new { p.AppUserId, p.stockId }));
+            builder.Entity<Portfolio>()
+                .HasOne(u => u.AppUser)
+                .WithMany(p => p.portfolios)
+                .HasForeignKey(f => f.AppUserId);
+
+             builder.Entity<Portfolio>()
+                .HasOne(u => u.Stock)
+                .WithMany(p => p.portfolios)
+                .HasForeignKey(f => f.stockId);
+
+
+
+
             List<IdentityRole> roles = new List<IdentityRole>
             {
                new IdentityRole
                 {
-                    Id = "1", 
+                    Id = "1",
                     Name = "Admin",
                     NormalizedName = "ADMIN"
              },
                 new IdentityRole
                 {
-                    Id = "2", 
+                    Id = "2",
                     Name = "User",
                     NormalizedName = "USER"
                 }
