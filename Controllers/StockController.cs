@@ -9,6 +9,7 @@ using api.Interfaces;
 using api.Mappers;
 using api.Models;
 using api.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Operations;
 using Microsoft.EntityFrameworkCore;
@@ -27,15 +28,16 @@ namespace api.Controllers
             _stockRepo = stockRepo;
         }
         [HttpGet]
+       [Authorize]
         public async Task<IActionResult> GetAll([FromQuery] QueryObject queryObject)
         {
             if (!ModelState.IsValid)
             {
-                 return BadRequest(ModelState);
+                return BadRequest(ModelState);
             }
-               
+
             var stock = await _stockRepo.GetAllAsync(queryObject);
-            var stockDtos= stock.Select(s => s.ToStockDto());
+            var stockDtos = stock.Select(s => s.ToStockDto());
             return Ok(stockDtos);
         }
         [HttpGet("{id:int}")]
