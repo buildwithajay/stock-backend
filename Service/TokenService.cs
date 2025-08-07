@@ -26,6 +26,7 @@ namespace Service
         {
             var claims = new List<Claim>
             {
+                new Claim(ClaimTypes.Name, appUser.UserName),
                 new Claim(JwtRegisteredClaimNames.Email, appUser.Email),
                 new Claim(JwtRegisteredClaimNames.GivenName, appUser.UserName)
             };

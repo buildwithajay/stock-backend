@@ -28,7 +28,7 @@ namespace api.Controllers
             _stockRepo = stockRepo;
         }
         [HttpGet]
-       [Authorize]
+       
         public async Task<IActionResult> GetAll([FromQuery] QueryObject queryObject)
         {
             if (!ModelState.IsValid)

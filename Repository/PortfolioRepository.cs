@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using api.Data;
 using api.Interfaces;
 using api.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Repository
@@ -16,8 +17,17 @@ namespace api.Repository
         {
             _context = context;
         }
-        public Task<List<Stock>> GetUserPortfolio(AppUser user)
+
+        public async Task<Portfolio> CreateAsync(Portfolio portfolio)
         {
+            await _context.portfolios.AddAsync(portfolio);
+            await _context.SaveChangesAsync();
+            return portfolio;
+        }
+
+        public Task<List<Stock>> GetUserPortfolio(AppUser user)
+        { 
+
             return _context.portfolios.Where(u => u.AppUserId == user.Id)
                 .Select(stock => new Stock
                 {
