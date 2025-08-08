@@ -40,14 +40,14 @@ namespace api.Repository
 
         public async Task<List<Comment>> GetAllAsync()
         {
-            return await _context.comments.ToListAsync();
+            return await _context.comments.Include(c=>c.AppUser).ToListAsync();
 
 
         }
 
         public async Task<Comment?> GetByIdAsync(int id)
         {
-            var comments = await _context.comments.FindAsync(id);
+            var comments = await _context.comments.Include(c=>c.AppUser).FirstOrDefaultAsync(s=>s.Id==id);
             if (comments == null)
             {
                 return null;
