@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace api.Models
 {
-       [Table("Comment")]
+    [Table("Comment")]
     public class Comment
     {
         public int Id { get; set; }
@@ -15,5 +15,7 @@ namespace api.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public int StockId { get; set; }
         public Stock? stock { get; set; }
+        public string? AppUserId { get; set; }
+        public AppUser? AppUser { get; set; }
     }
 }
