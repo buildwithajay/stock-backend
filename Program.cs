@@ -49,7 +49,16 @@ builder.Services.AddAuthentication(options=>
 
     };
 });
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowViteApp",
+    policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
 builder.Services.AddControllers();
 builder.Services.AddScoped<IStockRepository, StockRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
@@ -70,7 +79,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("AllowViteApp");
 app.MapGet("/", () => "hello world");
 app.MapControllers();
 app.Run();

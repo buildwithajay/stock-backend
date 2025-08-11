@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ajaypaudel/Desktop/Dotnet1.1/api/api.csproj": {}
+    "/Users/ajaypaudel/Desktop/Projects/Dotnet1.1/api/api.csproj": {}
   },
   "projects": {
-    "/Users/ajaypaudel/Desktop/Dotnet1.1/api/api.csproj": {
+    "/Users/ajaypaudel/Desktop/Projects/Dotnet1.1/api/api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ajaypaudel/Desktop/Dotnet1.1/api/api.csproj",
+        "projectUniqueName": "/Users/ajaypaudel/Desktop/Projects/Dotnet1.1/api/api.csproj",
         "projectName": "api",
-        "projectPath": "/Users/ajaypaudel/Desktop/Dotnet1.1/api/api.csproj",
+        "projectPath": "/Users/ajaypaudel/Desktop/Projects/Dotnet1.1/api/api.csproj",
         "packagesPath": "/Users/ajaypaudel/.nuget/packages/",
-        "outputPath": "/Users/ajaypaudel/Desktop/Dotnet1.1/api/obj/",
+        "outputPath": "/Users/ajaypaudel/Desktop/Projects/Dotnet1.1/api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ajaypaudel/.nuget/NuGet/NuGet.Config"
