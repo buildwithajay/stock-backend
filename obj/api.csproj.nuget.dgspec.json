@@ -83,6 +83,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "Scalar.AspNetCore": {
+              "target": "Package",
+              "version": "[2.7.0, )"
             }
           },
           "imports": [

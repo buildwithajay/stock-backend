@@ -50,9 +50,9 @@ namespace api.Controllers
         [Route("{stockId:int}")]
         public async Task<IActionResult> Create([FromRoute] int stockId, CreateCommentDto commentDto)
         {
-             if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                 return BadRequest(ModelState);
+                return BadRequest(ModelState);
             }
             if (!await _stockRepo.ExistingStockAsync(stockId))
             {
@@ -60,11 +60,11 @@ namespace api.Controllers
             }
             var username = User.GetUsername();
             var appUser = await _user.FindByNameAsync(username);
-
             var commentModel = commentDto.ToCommentFromCreate(stockId);
-            commentModel.AppUserId = appUser.Id;
+            commentModel.AppUserId = appUser!.Id;
             await _commentRepo.CreateAsync(commentModel);
             return CreatedAtAction(nameof(GetById), new { id = commentModel.Id }, commentModel.ToCommentDtos());
+            
         }
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Update([FromRoute] int id, UpdateCommentRequestDto updateComment)

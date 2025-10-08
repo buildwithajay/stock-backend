@@ -17,26 +17,26 @@ namespace api.Mappers
                 Title = comment.Title,
                 Content = comment.Content,
                 CreatedAt = comment.CreatedAt,
-                CreatedBy = comment.AppUser.UserName,
+                CreatedBy = comment.AppUser!.UserName!,
                 StockId = comment.StockId
             };
         }
-         public static Comment ToCommentFromCreate(this CreateCommentDto comment, int stockId)
+        public static Comment ToCommentFromCreate(this CreateCommentDto comment, int stockId)
         {
             return new Comment
             {
                 Title = comment.Title,
                 Content = comment.Content,
-                StockId = stockId
+                StockId = stockId,
+                
             };
         }
-              public static Comment ToCommentFromUpdate(this UpdateCommentRequestDto comment)
+        public static Comment ToCommentFromUpdate(this UpdateCommentRequestDto comment)
         {
             return new Comment
             {
                 Title = comment.Title,
                 Content = comment.Content,
-             
             };
         }
     }

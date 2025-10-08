@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using Scalar.AspNetCore;
 using Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -76,11 +77,12 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
 app.UseCors("AllowViteApp");
-app.MapGet("/", () => "hello world");
+
 app.MapControllers();
 app.Run();
 

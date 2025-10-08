@@ -15,5 +15,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.7" />
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="9.0.7" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.7.0" />
   </ItemGroup>
 </Project>

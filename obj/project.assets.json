@@ -1195,6 +1195,22 @@
           }
         }
       },
+      "Scalar.AspNetCore/2.7.0": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/Scalar.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Scalar.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "System.ClientModel/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -3935,6 +3951,25 @@
         "newtonsoft.json.bson.nuspec"
       ]
     },
+    "Scalar.AspNetCore/2.7.0": {
+      "sha512": "a/lcZV2Ipb8bkFonNEvtrCuleASknQ4kcskD2I9NKBFAFZ+DuTVlDsRFbsGvDEHazvhOaMEpbgNvgGoZUNM8Ng==",
+      "type": "package",
+      "path": "scalar.aspnetcore/2.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net10.0/Scalar.AspNetCore.dll",
+        "lib/net10.0/Scalar.AspNetCore.xml",
+        "lib/net8.0/Scalar.AspNetCore.dll",
+        "lib/net8.0/Scalar.AspNetCore.xml",
+        "lib/net9.0/Scalar.AspNetCore.dll",
+        "lib/net9.0/Scalar.AspNetCore.xml",
+        "scalar.aspnetcore.2.7.0.nupkg.sha512",
+        "scalar.aspnetcore.nuspec"
+      ]
+    },
     "System.ClientModel/1.0.0": {
       "sha512": "I3CVkvxeqFYjIVEP59DnjbeoGNfo/+SZrCLpRz2v/g0gpCHaEMPtWSY0s9k/7jR1rAsLNg2z2u1JRB76tPjnIw==",
       "type": "package",
@@ -4973,7 +5008,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.7",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.7",
       "Microsoft.Extensions.Identity.Core >= 9.0.7",
-      "Newtonsoft.Json >= 13.0.3"
+      "Newtonsoft.Json >= 13.0.3",
+      "Scalar.AspNetCore >= 2.7.0"
     ]
   },
   "packageFolders": {
@@ -5058,6 +5094,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "Scalar.AspNetCore": {
+            "target": "Package",
+            "version": "[2.7.0, )"
           }
         },
         "imports": [
